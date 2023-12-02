@@ -22,7 +22,7 @@ def main():
         encrypted_message = encrypt_decrypt(message_input.encode(), key)
         st.write("Pesan terenkripsi:", encrypted_message)
 
-    if st.button("Dekripsi"):
+    else st.button("Dekripsi"):
         decrypted_message_placeholder = st.empty()
 
         if 'encrypted_message' not in locals():
