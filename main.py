@@ -12,28 +12,23 @@ def encrypt_decrypt(message, key):
     return bytes(encrypted)
 
 def main():
-    st.title("Aplikasi Enkripsi & Dekripsi")
-
     # Input pesan yang akan dienkripsi
     message = st.text_input("Masukkan pesan:")
-
+    
     # Input kunci (gunakan seed untuk menghasilkan kunci yang sama setiap kali program dijalankan)
     seed = st.text_input("Masukkan seed untuk kunci:")
-
-    if st.button("Enkripsi / Dekripsi"):
+    
+    if st.button("Enkripsi"):
         key_length = len(message)
         key = generate_key(seed, key_length)
 
-        # Proses enkripsi atau dekripsi
-        result = encrypt_decrypt(message.encode(), key)
+        # Proses enkripsi
+        encrypted_message = encrypt_decrypt(message.encode(), key)
+        st.write("Pesan terenkripsi:", encrypted_message)
 
-        if isinstance(result, str):
-            st.write("Pesan terdekripsi:", result)
-        else:
-            try:
-                st.write("Pesan terenkripsi:", result.decode())
-            except UnicodeDecodeError:
-                st.error("Gagal mendekripsi pesan. Pastikan pesan yang Anda masukkan benar.")
+    if st.button("Dekripsi"):
+        decrypted_message = encrypt_decrypt(encrypted_message, key)
+        st.write("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
