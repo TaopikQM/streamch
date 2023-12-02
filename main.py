@@ -27,12 +27,12 @@ def main():
             key = generate_key(seed, key_length)
 
             # Proses enkripsi
-            encrypted_message = encrypt_decrypt(message.lower().encode(), key)
+            encrypted_message = encrypt_decrypt(message.encode(), key)
             st.write("Pesan terenkripsi:", encrypted_message.hex())
 
             # Proses dekripsi
             decrypted_message = encrypt_decrypt(encrypted_message, key)
-            st.write("Pesan terdekripsi:", decrypted_message.decode().upper())
+            st.write("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
