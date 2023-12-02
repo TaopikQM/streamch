@@ -26,11 +26,15 @@ def main():
 
         # Proses enkripsi atau dekripsi
         result = encrypt_decrypt(message.encode(), key)
-        
+
         if isinstance(result, str):
             st.write("Pesan terdekripsi:", result)
         else:
-            st.write("Pesan terenkripsi:", result.decode())
+            try:
+                st.write("Pesan terenkripsi:", result.decode())
+            except UnicodeDecodeError:
+                st.error("Gagal mendekripsi pesan. Pastikan pesan yang Anda masukkan benar.")
 
 if __name__ == "__main__":
     main()
+    
