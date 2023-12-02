@@ -19,18 +19,20 @@ def main():
 
     # Input kunci (gunakan seed untuk menghasilkan kunci yang sama setiap kali program dijalankan)
     seed = st.text_input("Masukkan seed untuk kunci:")
-    
-    if message and seed:
-        key_length = len(message)
-        key = generate_key(seed, key_length)
 
-        # Proses enkripsi
-        encrypted_message = encrypt_decrypt(message.encode(), key)
-        st.write("Pesan terenkripsi:", encrypted_message.hex())
+    # Tombol untuk melakukan enkripsi/dekripsi
+    if st.button("Encrypt/Decrypt"):
+        if message and seed:
+            key_length = len(message)
+            key = generate_key(seed, key_length)
 
-        # Proses dekripsi
-        decrypted_message = encrypt_decrypt(encrypted_message, key)
-        st.write("Pesan terdekripsi:", decrypted_message.decode())
+            # Proses enkripsi
+            encrypted_message = encrypt_decrypt(message.encode(), key)
+            st.write("Pesan terenkripsi:", encrypted_message.hex())
+
+            # Proses dekripsi
+            decrypted_message = encrypt_decrypt(encrypted_message, key)
+            st.write("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
