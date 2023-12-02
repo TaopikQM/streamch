@@ -24,8 +24,8 @@ def main():
 
     if st.button("Dekripsi"):
        # Proses dekripsi
-    decrypted_message = encrypt_decrypt(encrypted_message, key)
-    print("Pesan terdekripsi:", decrypted_message.decode())
+        decrypted_message = encrypt_decrypt(encrypted_message, key)
+        print("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
