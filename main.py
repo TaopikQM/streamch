@@ -28,11 +28,7 @@ def main():
 
             # Proses enkripsi
             encrypted_message = encrypt_decrypt(message.encode(), key)
-            st.write("Pesan terenkripsi:", encrypted_message.hex())
-
-            # Proses dekripsi
-            decrypted_message = encrypt_decrypt(encrypted_message, key)
-            st.write("Pesan terdekripsi:", decrypted_message.decode())
+            st.write("Pesan terenkripsi:", encrypted_message.decode())
 
 if __name__ == "__main__":
     main()
