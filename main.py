@@ -12,6 +12,7 @@ def encrypt_decrypt(message, key):
     return bytes(encrypted)
 
 def main():
+    st.title("Stream Cipher NABILLA NIH SENGGOL DONG!!!")
     message_input = st.text_input("Masukkan pesan:")
     seed_input = st.text_input("Masukkan seed untuk kunci:")
 
