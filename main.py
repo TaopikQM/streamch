@@ -15,14 +15,14 @@ def main():
     message_input = st.text_input("Masukkan pesan:")
     seed_input = st.text_input("Masukkan seed untuk kunci:")
 
-    button("Enkripsi"):
+    if st.button("Enkripsi"):
         key_length = len(message_input)
         key = generate_key(seed_input, key_length)
 
         encrypted_message = encrypt_decrypt(message_input.encode(), key)
         st.write("Pesan terenkripsi:", encrypted_message)
 
-    button("Dekripsi"):
+    if st.button("Dekripsi"):
        # Proses dekripsi
     decrypted_message = encrypt_decrypt(encrypted_message, key)
     print("Pesan terdekripsi:", decrypted_message.decode())
