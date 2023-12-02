@@ -18,7 +18,8 @@ def main():
     # Input kunci (gunakan seed untuk menghasilkan kunci yang sama setiap kali program dijalankan)
     seed = st.text_input("Masukkan seed untuk kunci:")
 
-    if encrypt_decrypt_button:
+    # Tombol untuk enkripsi/dekripsi
+    if st.button("Proses"):
         key_length = len(message)
         key = generate_key(seed, key_length)
 
