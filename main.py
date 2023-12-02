@@ -15,21 +15,17 @@ def main():
     message_input = st.text_input("Masukkan pesan:")
     seed_input = st.text_input("Masukkan seed untuk kunci:")
 
-    if st.button("Enkripsi"):
+    st.button("Enkripsi"):
         key_length = len(message_input)
         key = generate_key(seed_input, key_length)
 
         encrypted_message = encrypt_decrypt(message_input.encode(), key)
         st.write("Pesan terenkripsi:", encrypted_message)
 
-    if st.button("Dekripsi"):
-        decrypted_message_placeholder = st.empty()
-
-        if 'encrypted_message' not in locals():
-            st.error("Anda perlu mengenkripsi pesan terlebih dahulu sebelum dapat mendekripsinya.")
-        else:
-            decrypted_message = encrypt_decrypt(encrypted_message, key)
-            decrypted_message_placeholder.write("Pesan terdekripsi:", decrypted_message.decode())
+    st.button("Dekripsi"):
+       # Proses dekripsi
+    decrypted_message = encrypt_decrypt(encrypted_message, key)
+    print("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
