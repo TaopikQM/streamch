@@ -12,26 +12,24 @@ def encrypt_decrypt(message, key):
     return bytes(encrypted)
 
 def main():
-    # Input pesan yang akan dienkripsi
-    message = st.text_input("Masukkan pesan:")
-
-    # Input kunci (gunakan seed untuk menghasilkan kunci yang sama setiap kali program dijalankan)
-    seed = st.text_input("Masukkan seed untuk kunci:")
+    message_input = st.text_input("Masukkan pesan:")
+    seed_input = st.text_input("Masukkan seed untuk kunci:")
 
     if st.button("Enkripsi"):
-        key_length = len(message)
-        key = generate_key(seed, key_length)
+        key_length = len(message_input)
+        key = generate_key(seed_input, key_length)
 
-        # Proses enkripsi
-        encrypted_message = encrypt_decrypt(message.encode(), key)
+        encrypted_message = encrypt_decrypt(message_input.encode(), key)
         st.write("Pesan terenkripsi:", encrypted_message)
 
     if st.button("Dekripsi"):
+        decrypted_message_placeholder = st.empty()
+
         if 'encrypted_message' not in locals():
             st.error("Anda perlu mengenkripsi pesan terlebih dahulu sebelum dapat mendekripsinya.")
         else:
             decrypted_message = encrypt_decrypt(encrypted_message, key)
-            st.write("Pesan terdekripsi:", decrypted_message.decode())
+            decrypted_message_placeholder.write("Pesan terdekripsi:", decrypted_message.decode())
 
 if __name__ == "__main__":
     main()
