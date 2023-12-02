@@ -24,7 +24,8 @@ def main():
 
    # Tombol untuk melakukan dekripsi
     if st.button("Dekripsi"):
-        message_input
+        st.write("Pesan terdekripsi:",message_input)
+        
        # if 'encrypted_message' in locals():
             # Proses dekripsi hanya jika pesan terenkripsi sudah ada
         #    decrypted_message = decrypt_message(encrypted_message, key)
