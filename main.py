@@ -26,8 +26,9 @@ def main():
     if st.button("Dekripsi"):
         if 'encrypted_message' in locals():
             # Proses dekripsi hanya jika pesan terenkripsi sudah ada
-            decrypted_message = encrypt_decrypt(bytes.fromhex(encrypted_message.decode()), key)
+            decrypted_message = encrypt_decrypt(encrypted_message, key)
             st.write("Pesan terdekripsi:", decrypted_message.decode())
+
 
 
 if __name__ == "__main__":
