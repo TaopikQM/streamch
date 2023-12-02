@@ -22,12 +22,13 @@ def main():
         encrypted_message = encrypt_decrypt(message_input.encode(), key)
         st.write("Pesan terenkripsi:", encrypted_message)
 
-     # Tombol untuk melakukan dekripsi
+   # Tombol untuk melakukan dekripsi
     if st.button("Dekripsi"):
         if 'encrypted_message' in locals():
             # Proses dekripsi hanya jika pesan terenkripsi sudah ada
-            decrypted_message = encrypt_decrypt(encrypted_message, key)
+            decrypted_message = decrypt_message(encrypted_message, key)
             st.write("Pesan terdekripsi:", decrypted_message.decode())
+
 
 
 
